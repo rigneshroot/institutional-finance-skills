@@ -89,94 +89,36 @@ message = client.messages.create(
 
 ---
 
-## 💻 How to Use
+## 💻 How to Use (Simplified Workflow)
 
-The workflow transitions from raw SEC filings to explainable AI summaries in three simple phases:
+We have eliminated tedious copy-paste workflows. You can interact with these skills using two simple, elegant patterns:
 
-### Phase 1: Ingest & Format Data (Python Helper)
-Run the following self-contained Python script to fetch, parse, and format a raw 13F filing directly from the **SEC EDGAR API** into the exact JSON schema required by our skills. 
+### Option A: The Agentic Workflow (Zero Clicks / One Prompt)
+If you are using an **Agentic AI coding assistant** (such as Claude Code, terminal-connected environments, or Antigravity):
+Simply type a single natural-language instruction in your chat:
+> *"Run `run.py` to fetch Berkshire Hathaway's latest holdings, then analyze their strategy using the activated skills."*
 
-Save this script as `fetch_13f.py` and run it:
-```python
-import json
-import requests
-import pandas as pd
+The AI assistant will automatically run the ingestion script, read the output file, parse the data, and render the complete academic report directly in your chat in a single turn!
 
-# Standard headers required by SEC EDGAR API
-HEADERS = {"User-Agent": "Institutional Research Agent research@example.com"}
+### Option B: The One-Command CLI Workflow (No Copy-Paste)
+If you are working in a standard local terminal, run the unified CLI script to fetch and format live filings in one step:
 
-def get_company_cik(ticker_or_name):
-    # Retrieve active CIK list from SEC
-    url = "https://www.sec.gov/files/company_tickers.json"
-    r = requests.get(url, headers=HEADERS)
-    if r.status_code == 200:
-        data = r.json()
-        for k, v in data.items():
-            if v['title'].lower().startswith(ticker_or_name.lower()) or v['ticker'] == ticker_or_name.upper():
-                return str(v['cik_str']).zfill(10)
-    return None
-
-def fetch_latest_13f_payload(cik):
-    # Fetch list of submissions for CIK
-    url = f"https://data.sec.gov/submissions/CIK{cik}.json"
-    r = requests.get(url, headers=HEADERS)
-    if r.status_code != 200:
-         raise Exception(f"Failed to fetch submissions for CIK: {cik}")
-    
-    submissions = r.json()
-    recent = submissions["filings"]["recent"]
-    df = pd.DataFrame(recent)
-    
-    # Filter for 13F filings
-    df_13f = df[df["form"] == "13F-HR"]
-    if df_13f.empty:
-        raise Exception("No Form 13F-HR filings found for this institution.")
-        
-    latest_filing = df_13f.iloc[0]
-    accession_num = latest_filing["accessionNumber"].replace("-", "")
-    submission_date = latest_filing["filingDate"]
-    
-    print(f"Ingesting latest 13F filing (Filing Date: {submission_date})...")
-    
-    # In a production environment, parse the primary document XML.
-    # Below is the schema structure expected by the Claude Skills Core:
-    sample_payload = {
-        "institution_name": submissions["name"],
-        "reporting_period": submission_date,
-        "holdings": [
-            {"ticker": "AAPL", "shares": 300000000, "value_usd": 69900000000, "sector": "Information Technology"},
-            {"ticker": "BAC", "shares": 800000000, "value_usd": 32000000000, "sector": "Financials"},
-            {"ticker": "AXP", "shares": 151610700, "value_usd": 29000000000, "sector": "Financials"},
-            {"ticker": "KO", "shares": 400000000, "value_usd": 24000000000, "sector": "Consumer Staples"},
-            {"ticker": "CVX", "shares": 120000000, "value_usd": 18000000000, "sector": "Energy"}
-        ]
-    }
-    return sample_payload
-
-if __name__ == "__main__":
-    # Example: Berkshire Hathaway CIK: 0001067983
-    cik = get_company_cik("Berkshire Hathaway")
-    if cik:
-        payload = fetch_latest_13f_payload(cik)
-        print("\nGenerated JSON Payload for Claude Skills Input:")
-        print(json.dumps(payload, indent=2))
+```bash
+# General Usage: python run.py "<Institution Name or Ticker>"
+python run.py "Berkshire Hathaway"
 ```
 
-### Phase 2: Copy JSON & Ask Claude
-Copy the JSON output generated from your local pipeline and paste it directly into your Claude conversation, triggering the active skills:
+This will automatically:
+1. Contact the **SEC EDGAR API** and resolve the target CIK code.
+2. Download and parse the live 13F XML holdings table directly from the SEC directory.
+3. Render a beautiful portfolio concentration dashboard directly in your terminal.
+4. Export the formatted dataset as a structured file in your workspace: `berkshire_hathaway_holdings.json`.
 
-#### Conversational Prompt Templates
+#### Interacting in Claude
+Once the JSON file is generated in your workspace, you can simply upload the file into Claude or prompt your assistant:
+> *"Analyze the portfolio located in `berkshire_hathaway_holdings.json` using the Macro Theme Detector skill."*
 
-> [!TIP]
-> **Use these templates in your chat with Claude:**
-> - **Portfolio Concentration**:
->   > *"Analyze this Berkshire Hathaway Q3 payload using the Portfolio Analyzer skill: [Paste JSON Payload]"*
-> - **Macro Theme Exposure**:
->   > *"Execute the Macro Theme Detector skill on this portfolio payload to isolate thematic exposures: [Paste JSON Payload]"*
-> - **Comparative Analysis**:
->   > *"Run the Institution Comparison skill comparing this model A against model B: [Paste comparative JSON]"*
-> - **Explainable Rationale**:
->   > *"Trigger the Institutional Rationale Engine to explain why Berkshire increased its energy sector allocation, given current Fed rate pauses: [Paste JSON Payload]"*
+Claude will read the file directly, completely eliminating the need to copy-paste thousands of lines of raw JSON payload.
 
 ---
 
