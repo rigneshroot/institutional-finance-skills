@@ -6,15 +6,45 @@
 
 Welcome to **Institutional Intelligence Skills**, an open-source Explainable AI (XAI) framework built on the **Claude Skills** architecture. Authored by **Rignesh P**, this repository bridges the informational gap between institutional investment giants and independent market researchers by transforming dense, retroactive regulatory filings into structured, macro-contextualized portfolio intelligence.
 
+> ⚠️ **Data Limitation**: SEC Form 13F data is delayed by approximately 45 days and is inherently backward-looking. Holdings reflect positions as of the filing date, not current allocations. This framework is designed for post-hoc academic research and strategic interpretation—**not** real-time trading signals.
+
+---
+
+## ⚡ Quick Start
+
+```bash
+# Install the only dependency
+pip install requests
+
+# Run a portfolio analysis for JPMorgan Chase
+python run.py "JPMorgan Chase" --limit 15
+```
+
+**Example Output:**
+
+![Example CLI Output — JPMC Portfolio Dashboard](assets/example_output.png)
+
+For full setup instructions, see the **[Getting Started Guide](docs/getting_started.md)**.
+
 ---
 
 ## 🏛️ Supported Institutions
 
 The framework is engineered to support a diverse cohort of global institutional asset managers, categorizing them by investment philosophy:
 
-| **Investment Banks** | **Asset Managers** | **Hedge Funds** | **Conglomerates** |
-| :--- | :--- | :--- | :--- |
-| • JPMorgan Chase<br>• Citigroup<br>• Goldman Sachs | • BlackRock<br>• Vanguard | • Citadel<br>• Bridgewater<br>• Pershing Square<br>• Renaissance Technologies<br>• Two Sigma | • Berkshire Hathaway |
+| Category | Institution | Strategy Archetype |
+| :--- | :--- | :--- |
+| **Investment Banks** | JPMorgan Chase | Diversified universal banking |
+| | Citigroup | Global consumer & institutional banking |
+| | Goldman Sachs | Trading & asset management |
+| **Asset Managers** | BlackRock | Passive indexing & factor strategies |
+| | Vanguard | Low-cost index fund leadership |
+| **Hedge Funds** | Citadel | Multi-strategy quantitative |
+| | Bridgewater | Risk-parity macro systematic |
+| | Pershing Square | Concentrated activist value |
+| | Renaissance Technologies | Pure quantitative statistical arbitrage |
+| | Two Sigma | Machine learning-driven systematic |
+| **Conglomerates** | Berkshire Hathaway | Concentrated high-conviction value |
 
 ---
 
@@ -50,13 +80,13 @@ This research introduces a scientific empirical framework using:
 
 This repository is engineered as a **Claude Skills-only repository**, containing 5 decoupled, enterprise-grade analytical skills. Each skill is packaged in a self-contained directory containing its isolated `SKILL.md` instruction file:
 
-| Reusable Claude Skill | Location | Analytical Purpose |
+| Skill | Location | Analytical Purpose |
 | :--- | :--- | :--- |
-| **Institution Portfolio Analyzer** | [`skills/institution-portfolio-analyzer/SKILL.md`](skills/institution-portfolio-analyzer/SKILL.md) | Parses raw 13F holdings, aggregates standardized sectors, and evaluates Herfindahl-Hirschman Index (HHI) concentration scores. |
-| **Filing Change Detector** | [`skills/filing-change-detector/SKILL.md`](skills/filing-change-detector/SKILL.md) | Tracks quarter-over-quarter share movements, isolating new, increased, reduced, and liquidated holdings. |
-| **Rationale Engine** | [`skills/rationale-engine/SKILL.md`](skills/rationale-engine/SKILL.md) | Synthesizes explainable, probabilistic rationales for portfolio shifts using macroeconomic catalysts. |
-| **Market Distribution Mapper** | [`skills/market-distribution-mapper/SKILL.md`](skills/market-distribution-mapper/SKILL.md) | Stratifies assets across market-cap brackets, global domicile geographies, and specific sub-industries. |
-| **Institution Comparison Engine** | [`skills/institution-comparison/SKILL.md`](skills/institution-comparison/SKILL.md) | Performs side-by-side structural comparison and divergent sector weight evaluations of two managers. |
+| **Institution Portfolio Analyzer** | [SKILL.md](skills/institution-portfolio-analyzer/SKILL.md) | Parses raw 13F holdings, aggregates standardized sectors, and evaluates HHI concentration scores. |
+| **Filing Change Detector** | [SKILL.md](skills/filing-change-detector/SKILL.md) | Tracks quarter-over-quarter share movements, isolating new, increased, reduced, and liquidated holdings. |
+| **Rationale Engine** | [SKILL.md](skills/rationale-engine/SKILL.md) | Synthesizes explainable, probabilistic rationales for portfolio shifts using macroeconomic catalysts. |
+| **Market Distribution Mapper** | [SKILL.md](skills/market-distribution-mapper/SKILL.md) | Stratifies assets across market-cap brackets, global domicile geographies, and specific sub-industries. |
+| **Institution Comparison Engine** | [SKILL.md](skills/institution-comparison/SKILL.md) | Performs side-by-side structural comparison and divergent sector weight evaluations of two managers. |
 
 ---
 
@@ -66,9 +96,10 @@ To keep the repository clean and readable, detailed instructions and guides have
 
 * **[1. Getting Started Guide](docs/getting_started.md)**: Setup prerequisites, library installation (`requests`), and step-by-step instructions on loading skills into Claude.ai Projects.
 * **[2. How to Use Guide](docs/how_to_use.md)**: Agentic one-prompt workflows, unified terminal execution (`run.py` CLI script), and our **Input Flexibility (No JSON Required)** guidelines.
-* **[3. Prompt Templates Directory](docs/prompt_templates.md)**: A complete, copy-pasteable library of sophisticated conversational chat prompts for all 6 skills.
+* **[3. Prompt Templates Directory](docs/prompt_templates.md)**: A complete, copy-pasteable library of sophisticated conversational chat prompts for all 5 skills.
 * **[4. Financial Infrastructure & Resources](docs/financial_infrastructure.md)**: Comprehensive educational breakdowns of SEC Form 13F and the OpenFIGI standard, alongside recommended reference websites for benchmarking.
 * **[5. Jupyter Notebooks Directory](notebooks/)**: Interactive Jupyter Notebooks (`.ipynb`) detailing JPMC holdings, Berkshire's sector rotations, Citadel's multi-strategy changes, and Bridgewater's risk-parity macro themes.
+* **[6. Example Reports](examples/)**: Sample output reports demonstrating JPMC portfolio analysis, Citadel change detection, and Berkshire sector rotation.
 
 ---
 
@@ -83,6 +114,10 @@ institutional-finance-skills/
 │   ├── getting_started.md
 │   ├── how_to_use.md
 │   └── prompt_templates.md
+├── examples/
+│   ├── jpmc_sample_report.md
+│   ├── citadel_change_analysis.md
+│   └── berkshire_sector_rotation.md
 ├── notebooks/
 │   ├── jpmc_analysis.ipynb
 │   ├── berkshire_sector_rotation.ipynb
@@ -103,7 +138,8 @@ institutional-finance-skills/
 │   ├── conceptual_framework.png
 │   ├── system_architecture.png
 │   ├── sector_allocation.png
-│   └── pipeline_flow.png
+│   ├── pipeline_flow.png
+│   └── example_output.png
 ├── LICENSE
 ├── README.md
 ├── run.py

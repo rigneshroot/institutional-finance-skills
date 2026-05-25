@@ -12,7 +12,7 @@ Institutional capital allocation decisions collectively direct trillions of doll
 
 This paper introduces **Institutional Intelligence Skills**, a formal, modular Explainable AI (XAI) framework built on the **Claude Skills** architecture. We formulate a scientific experimental framework to evaluate explainable portfolio intelligence, defining a rigorous system of **Independent Variables (IV)** (Reasoning Paradigm, Macroeconomic Contextualization Depth, and Input Temporal Granularity), **Dependent Variables (DV)** (Comprehension Score, Calibrated User Trust, Downstream Actionability Utility, and Rationale Strategic Fidelity), and **Control Variables (CV)** (Financial Sophistication, Strategy Complexity, Market Regime, and Model Architecture). 
 
-Through empirical simulation and expert human-in-the-loop evaluation, we demonstrate that the proposed framework elevates objective user strategy comprehension by **$111.9\%$** relative to static dashboards, increases explainable strategic fidelity ($F_s$) to a cosine similarity of **$0.91$** against post-hoc expert rationales, and stabilizes user trust calibration. We provide a complete implementation of the 6 constituent Claude Skills, illustrating a production-grade, highly structured repository blueprint for transparent financial intelligence.
+Through empirical simulation and expert human-in-the-loop evaluation, we demonstrate that the proposed framework elevates objective user strategy comprehension by **$111.9\%$** relative to static dashboards, increases explainable strategic fidelity ($F_s$) to a cosine similarity of **$0.91$** against post-hoc expert rationales, and stabilizes user trust calibration. We provide a complete implementation of the 5 constituent Claude Skills, illustrating a production-grade, highly structured repository blueprint for transparent financial intelligence.
 
 ---
 
@@ -29,7 +29,7 @@ To address these limitations, we present **Institutional Intelligence Skills**, 
 
 This paper makes the following primary contributions:
 - We formulate a formal, scientific experimental framework defining the causal pathways between AI design choices (Independent Variables) and user-centric financial outcomes (Dependent Variables).
-- We detail a modular, highly scalable software architecture based on **Claude Skills**, implementing 6 dedicated skills that translate raw SEC EDGAR data into explainable strategic intelligence.
+- We detail a modular, highly scalable software architecture based on **Claude Skills**, implementing 5 dedicated skills that translate raw SEC EDGAR data into explainable strategic intelligence.
 - We present comprehensive evaluation metrics, including mathematical models for user comprehension, trust calibration, and semantic strategic alignment.
 - We open-source the complete repository blueprint under the MIT License, authored by Rignesh P, as a benchmark for explainable financial technology.
 
@@ -110,13 +110,12 @@ Because 13F filings list securities by CUSIP and issuer name rather than standar
 3. **Macro Correlation**: Cross-references the filing date range with macroeconomic indicators (e.g., Federal Reserve dot plots, CPI monthly prints, treasury yield spreads) retrieved from open database nodes.
 
 ### 4.2 Claude Skills Core
-The reasoning and user interaction layers are divided into 6 atomic Claude Skills:
+The reasoning and user interaction layers are divided into 5 atomic Claude Skills:
 1. **Institution Portfolio Analyzer**: Extracts core holdings, sector concentration, HHI (Herfindahl-Hirschman Index) diversification scores, and basic position weights.
 2. **Filing Change Detector**: Computes exact quarter-over-quarter adjustments, isolating new, increased, reduced, and fully liquidated positions.
 3. **Institutional Rationale Engine**: The core explainability layer. It ingests portfolio changes and applies a structured reasoning prompt incorporating sector performance and macroeconomic factors to generate a highly detailed strategic explanation.
 4. **Market Distribution Mapper**: Formulates geographic, market-cap, and industry-level asset allocations, transforming dense tables into structured representations.
-5. **Macro Theme Detector**: Analyzes thematic alignment (e.g., identifying if a portfolio's shifts indicate a "defensive rate-cut hedge" or an "aggressive AI-infrastructure expansion").
-6. **Institution Comparison Engine**: Directs comparative analysis between two distinct institutional profiles (e.g., comparing Bridgewater's risk-parity allocation against Citadel's multi-strategy model).
+5. **Institution Comparison Engine**: Directs comparative analysis between two distinct institutional profiles (e.g., comparing Bridgewater's risk-parity allocation against Citadel's multi-strategy model).
 
 ### 4.3 Sequential Query Execution Pipeline
 To maintain rigorous analytical execution, the system processes user interactions through a highly structured, sequential linear pipeline. This architecture ensures that natural language intents are systematically routed, enriched with regulatory data, mathematically parsed, and strategically justified before producing the final response.
@@ -124,7 +123,7 @@ To maintain rigorous analytical execution, the system processes user interaction
 ![Figure 4: Sequential Query Execution Pipeline](assets/pipeline_flow.png)
 *Figure 4: Sequential Query Execution Pipeline mapping the linear execution pathway from a raw natural language User Query to the final Explainable Response.*
 
-The pipeline executes through six discrete functional stages:
+The pipeline executes through five discrete functional stages:
 1. **User Query**: The entry point of the pipeline. The user inputs a natural language financial question or prompt (e.g., *"Analyze the impact of Berkshire's recent cash accumulation and sector shifts"*).
 2. **Claude Skill Router**: An intent classification layer. The core model parses the prompt's linguistic structure, identifies the specific analytical objective, and routes the request to the matching Claude Skill module (e.g., routing a comparative prompt to the `institution-comparison` skill).
 3. **SEC Filing Fetcher**: The automated data acquisition phase. The routed skill activates the ingestion sub-routine to query the SEC EDGAR API, locate the target manager's CIK, and retrieve the latest Form 13F-HR filings.
@@ -236,6 +235,10 @@ institutional-finance-skills/
 │   ├── getting_started.md
 │   ├── how_to_use.md
 │   └── prompt_templates.md
+├── examples/
+│   ├── jpmc_sample_report.md
+│   ├── citadel_change_analysis.md
+│   └── berkshire_sector_rotation.md
 ├── notebooks/
 │   ├── jpmc_analysis.ipynb
 │   ├── berkshire_sector_rotation.ipynb
@@ -256,7 +259,8 @@ institutional-finance-skills/
 │   ├── conceptual_framework.png
 │   ├── system_architecture.png
 │   ├── sector_allocation.png
-│   └── pipeline_flow.png
+│   ├── pipeline_flow.png
+│   └── example_output.png
 ├── LICENSE
 ├── README.md
 ├── run.py
