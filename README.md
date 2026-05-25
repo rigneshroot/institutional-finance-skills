@@ -8,6 +8,16 @@ Welcome to **Institutional Intelligence Skills**, an open-source Explainable AI 
 
 ---
 
+## 🏛️ Supported Institutions
+
+The framework is engineered to support a diverse cohort of global institutional asset managers, categorizing them by investment philosophy:
+
+| **Investment Banks** | **Asset Managers** | **Hedge Funds** | **Conglomerates** |
+| :--- | :--- | :--- | :--- |
+| • JPMorgan Chase<br>• Citigroup<br>• Goldman Sachs | • BlackRock<br>• Vanguard | • Citadel<br>• Bridgewater<br>• Pershing Square<br>• Renaissance Technologies<br>• Two Sigma | • Berkshire Hathaway |
+
+---
+
 ## 📖 Research Foundation
 
 The mathematical models, empirical evaluations, and cognitive frameworks backing this technology are detailed in the accompanying research paper:
@@ -38,15 +48,14 @@ This research introduces a scientific empirical framework using:
 
 ## 🛠️ Claude Skills Core
 
-This repository is engineered as a **Claude Skills-only repository**, containing 6 decoupled, enterprise-grade analytical skills. Each skill is packaged in a self-contained directory containing its isolated `SKILL.md` instruction file:
+This repository is engineered as a **Claude Skills-only repository**, containing 5 decoupled, enterprise-grade analytical skills. Each skill is packaged in a self-contained directory containing its isolated `SKILL.md` instruction file:
 
 | Reusable Claude Skill | Location | Analytical Purpose |
 | :--- | :--- | :--- |
 | **Institution Portfolio Analyzer** | [`skills/institution-portfolio-analyzer/SKILL.md`](skills/institution-portfolio-analyzer/SKILL.md) | Parses raw 13F holdings, aggregates standardized sectors, and evaluates Herfindahl-Hirschman Index (HHI) concentration scores. |
 | **Filing Change Detector** | [`skills/filing-change-detector/SKILL.md`](skills/filing-change-detector/SKILL.md) | Tracks quarter-over-quarter share movements, isolating new, increased, reduced, and liquidated holdings. |
-| **Institutional Rationale Engine** | [`skills/institutional-rationale-engine/SKILL.md`](skills/institutional-rationale-engine/SKILL.md) | Synthesizes explainable, probabilistic rationales for portfolio shifts using macroeconomic catalysts. |
+| **Rationale Engine** | [`skills/rationale-engine/SKILL.md`](skills/rationale-engine/SKILL.md) | Synthesizes explainable, probabilistic rationales for portfolio shifts using macroeconomic catalysts. |
 | **Market Distribution Mapper** | [`skills/market-distribution-mapper/SKILL.md`](skills/market-distribution-mapper/SKILL.md) | Stratifies assets across market-cap brackets, global domicile geographies, and specific sub-industries. |
-| **Macro Theme Detector** | [`skills/macro-theme-detector/SKILL.md`](skills/macro-theme-detector/SKILL.md) | Groups positions into broad macroeconomic indicators (e.g., inflation hedges, growth exposure, defensive yield seeking). |
 | **Institution Comparison Engine** | [`skills/institution-comparison/SKILL.md`](skills/institution-comparison/SKILL.md) | Performs side-by-side structural comparison and divergent sector weight evaluations of two managers. |
 
 ---
@@ -78,11 +87,9 @@ institutional-finance-skills/
 │   │   └── SKILL.md
 │   ├── filing-change-detector/
 │   │   └── SKILL.md
-│   ├── institutional-rationale-engine/
-│   │   └── SKILL.md
 │   ├── market-distribution-mapper/
 │   │   └── SKILL.md
-│   ├── macro-theme-detector/
+│   ├── rationale-engine/
 │   │   └── SKILL.md
 │   └── institution-comparison/
 │       └── SKILL.md

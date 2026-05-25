@@ -45,7 +45,7 @@ This will automatically:
 
 ### Interacting in Claude
 Once the JSON file is generated in your workspace, you can simply upload the file into Claude or prompt your assistant:
-> *"Analyze the portfolio located in `berkshire_hathaway_holdings.json` using the Macro Theme Detector skill."*
+> *"Analyze the portfolio located in `berkshire_hathaway_holdings.json` using the Rationale Engine skill."*
 
 Claude will read the file directly, completely eliminating the need to copy-paste thousands of lines of raw JSON payload.
 

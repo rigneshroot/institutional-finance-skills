@@ -231,25 +231,30 @@ The production codebase is refactored into a **Claude Skills only repository**. 
 
 ```txt
 institutional-finance-skills/
+├── docs/
+│   ├── financial_infrastructure.md
+│   ├── getting_started.md
+│   ├── how_to_use.md
+│   └── prompt_templates.md
 ├── skills/
 │   ├── institution-portfolio-analyzer/
 │   │   └── SKILL.md
 │   ├── filing-change-detector/
 │   │   └── SKILL.md
-│   ├── institutional-rationale-engine/
-│   │   └── SKILL.md
 │   ├── market-distribution-mapper/
 │   │   └── SKILL.md
-│   ├── macro-theme-detector/
+│   ├── rationale-engine/
 │   │   └── SKILL.md
 │   └── institution-comparison/
 │       └── SKILL.md
 ├── assets/
 │   ├── conceptual_framework.png
 │   ├── system_architecture.png
-│   └── sector_allocation.png
+│   ├── sector_allocation.png
+│   └── pipeline_flow.png
 ├── LICENSE
 ├── README.md
+├── run.py
 └── institutional_intelligence_skills_research_document.md
 ```
 
