@@ -118,6 +118,20 @@ The reasoning and user interaction layers are divided into 6 atomic Claude Skill
 5. **Macro Theme Detector**: Analyzes thematic alignment (e.g., identifying if a portfolio's shifts indicate a "defensive rate-cut hedge" or an "aggressive AI-infrastructure expansion").
 6. **Institution Comparison Engine**: Directs comparative analysis between two distinct institutional profiles (e.g., comparing Bridgewater's risk-parity allocation against Citadel's multi-strategy model).
 
+### 4.3 Sequential Query Execution Pipeline
+To maintain rigorous analytical execution, the system processes user interactions through a highly structured, sequential linear pipeline. This architecture ensures that natural language intents are systematically routed, enriched with regulatory data, mathematically parsed, and strategically justified before producing the final response.
+
+![Figure 4: Sequential Query Execution Pipeline](assets/pipeline_flow.png)
+*Figure 4: Sequential Query Execution Pipeline mapping the linear execution pathway from a raw natural language User Query to the final Explainable Response.*
+
+The pipeline executes through six discrete functional stages:
+1. **User Query**: The entry point of the pipeline. The user inputs a natural language financial question or prompt (e.g., *"Analyze the impact of Berkshire's recent cash accumulation and sector shifts"*).
+2. **Claude Skill Router**: An intent classification layer. The core model parses the prompt's linguistic structure, identifies the specific analytical objective, and routes the request to the matching Claude Skill module (e.g., routing a comparative prompt to the `institution-comparison` skill).
+3. **SEC Filing Fetcher**: The automated data acquisition phase. The routed skill activates the ingestion sub-routine to query the SEC EDGAR API, locate the target manager's CIK, and retrieve the latest Form 13F-HR filings.
+4. **Portfolio Analyzer**: The mathematical normalization layer. The system parses the raw XML table, maps CUSIPs to standard tickers via OpenFIGI, and calculates HHI concentration indices, sector weight distributions, and transaction deltas.
+5. **AI Rationale Engine**: The strategic contextualization phase. The structured portfolio metrics are merged with the current macroeconomic regime (interest rates, CPI inflation, yield curve slopes) to generate a probabilistic, step-by-step chain-of-thought strategic reasoning.
+6. **Explainable Response Generator**: The synthesis phase. The generated macro rationale and quantitative distributions are compiled, formatted using high-contrast markdown structures, and returned to the user as a transparent, verified investment intelligence report.
+
 ---
 
 ## 5. Experimental Methodology and Mathematical Formulation

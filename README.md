@@ -31,6 +31,9 @@ This research introduces a scientific empirical framework using:
 ### Portfolio Sector Allocation Comparison (Figure 3)
 ![Figure 3: Portfolio Sector Allocation Comparison](assets/sector_allocation.png)
 
+### Sequential Query Execution Pipeline (Figure 4)
+![Figure 4: Sequential Query Execution Pipeline](assets/pipeline_flow.png)
+
 ---
 
 ## 🛠️ Claude Skills Core
@@ -86,7 +89,8 @@ institutional-finance-skills/
 ├── assets/
 │   ├── conceptual_framework.png
 │   ├── system_architecture.png
-│   └── sector_allocation.png
+│   ├── sector_allocation.png
+│   └── pipeline_flow.png
 ├── LICENSE
 ├── README.md
 ├── run.py
