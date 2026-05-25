@@ -24,13 +24,14 @@ This research introduces a scientific empirical framework using:
 
 Browse the conceptual, technical, and analytical foundations of our XAI system through this interactive research carousel:
 
-````carousel
+### Conceptual Research Framework (Figure 1)
 ![Figure 1: Scientific Conceptual Framework](assets/conceptual_framework.png)
-<!-- slide -->
+
+### Technical System Architecture (Figure 2)
 ![Figure 2: Technical System Architecture](assets/system_architecture.png)
-<!-- slide -->
+
+### Portfolio Sector Allocation Comparison (Figure 3)
 ![Figure 3: Portfolio Sector Allocation Comparison](assets/sector_allocation.png)
-````
 
 ---
 
