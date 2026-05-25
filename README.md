@@ -74,6 +74,18 @@ This research introduces a scientific empirical framework using:
 ### Sequential Query Execution Pipeline (Figure 4)
 ![Figure 4: Sequential Query Execution Pipeline](assets/pipeline_flow.png)
 
+### End-to-End Workflow Architecture (Figure 5)
+![Figure 5: End-to-End Workflow Architecture](assets/workflow_diagram.png)
+
+### Skill Interaction Architecture (Figure 6)
+![Figure 6: Skill Interaction Architecture](assets/skill_interaction.png)
+
+### Filing Analysis Pipeline (Figure 7)
+![Figure 7: Filing Analysis Pipeline](assets/filing_pipeline.png)
+
+### Rationale Engine Architecture (Figure 8)
+![Figure 8: Rationale Engine Architecture](assets/rationale_engine_flow.png)
+
 ---
 
 ## 🛠️ Claude Skills Core
@@ -139,6 +151,10 @@ institutional-finance-skills/
 │   ├── system_architecture.png
 │   ├── sector_allocation.png
 │   ├── pipeline_flow.png
+│   ├── workflow_diagram.png
+│   ├── skill_interaction.png
+│   ├── filing_pipeline.png
+│   ├── rationale_engine_flow.png
 │   └── example_output.png
 ├── LICENSE
 ├── README.md

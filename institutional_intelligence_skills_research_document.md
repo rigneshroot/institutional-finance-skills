@@ -131,6 +131,42 @@ The pipeline executes through five discrete functional stages:
 5. **AI Rationale Engine**: The strategic contextualization phase. The structured portfolio metrics are merged with the current macroeconomic regime (interest rates, CPI inflation, yield curve slopes) to generate a probabilistic, step-by-step chain-of-thought strategic reasoning.
 6. **Explainable Response Generator**: The synthesis phase. The generated macro rationale and quantitative distributions are compiled, formatted using high-contrast markdown structures, and returned to the user as a transparent, verified investment intelligence report.
 
+### 4.4 End-to-End Workflow Architecture
+The complete execution lifecycle—from initial user query through iterative refinement—is governed by a structured workflow that enforces sequential stage dependencies while supporting feedback loops for analytical deepening.
+
+![Figure 5: End-to-End Workflow Architecture](assets/workflow_diagram.png)
+*Figure 5: End-to-End Workflow Architecture illustrating the six-stage execution lifecycle with iterative refinement feedback from Report Output back to User Query.*
+
+The workflow enforces strict stage gating: each stage must complete validation before downstream stages are activated, ensuring data integrity propagation across the entire analytical chain.
+
+### 4.5 Skill Interaction Architecture
+The 5 Claude Skills operate as modular, loosely-coupled analytical units orchestrated by a central Skill Router. While each skill encapsulates an independent analytical capability, cross-skill data dependencies enable compositional analysis.
+
+![Figure 6: Skill Interaction Architecture](assets/skill_interaction.png)
+*Figure 6: Skill Interaction Architecture showing hub-spoke routing topology and inter-skill data flow dependencies.*
+
+Key data flow dependencies include:
+- **Portfolio Analyzer → Filing Change Detector**: Baseline holdings serve as the reference frame for delta computation.
+- **Filing Change Detector → Rationale Engine**: Identified position changes are the primary input for causal reasoning.
+- **Portfolio Analyzer → Market Distribution Mapper**: Normalized holdings feed directly into geographic, capitalization, and industry stratification.
+- **Portfolio Analyzer → Institution Comparison**: Standardized portfolio structures from two institutions are required for divergence analysis.
+
+### 4.6 Filing Analysis Pipeline
+The data ingestion sub-system implements a 7-stage vertical pipeline that transforms raw SEC EDGAR HTTP responses into structured, analytically-ready portfolio metrics.
+
+![Figure 7: Filing Analysis Pipeline](assets/filing_pipeline.png)
+*Figure 7: Filing Analysis Pipeline detailing the 7-stage transformation from raw SEC EDGAR API call to computed HHI and weight metrics.*
+
+The pipeline stages execute sequentially: (1) SEC EDGAR API request, (2) CIK resolution from company ticker or name, (3) 13F-HR filing accession number location, (4) XML information table parsing, (5) CUSIP-to-ticker mapping via OpenFIGI, (6) GICS sector classification aggregation, and (7) HHI concentration index and portfolio weight computation.
+
+### 4.7 Rationale Engine Architecture
+The Rationale Engine implements a multi-signal convergent reasoning pipeline that synthesizes explainable strategic rationales from three independent data streams.
+
+![Figure 8: Rationale Engine Architecture](assets/rationale_engine_flow.png)
+*Figure 8: Rationale Engine Architecture depicting the three-stream convergent input (Portfolio Delta, Macroeconomic Context, Sector Performance) feeding into the Chain-of-Thought Reasoning Engine.*
+
+The reasoning engine applies a three-phase internal process: (1) **Correlation Analysis** identifies statistically plausible linkages between portfolio movements and macro signals, (2) **Hypothesis Generation** constructs candidate strategic explanations using chain-of-thought decomposition, and (3) **Confidence Scoring** assigns probabilistic confidence levels to each hypothesis. The output produces an Explainable Strategic Rationale containing probabilistic explanations, macro catalyst matches, and calibrated confidence levels.
+
 ---
 
 ## 5. Experimental Methodology and Mathematical Formulation
@@ -260,6 +296,10 @@ institutional-finance-skills/
 │   ├── system_architecture.png
 │   ├── sector_allocation.png
 │   ├── pipeline_flow.png
+│   ├── workflow_diagram.png
+│   ├── skill_interaction.png
+│   ├── filing_pipeline.png
+│   ├── rationale_engine_flow.png
 │   └── example_output.png
 ├── LICENSE
 ├── README.md
