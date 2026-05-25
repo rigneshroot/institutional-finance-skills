@@ -75,10 +75,13 @@ This repository is engineered as a **Claude Skills-only repository**, containing
 Equipping your Claude AI assistant with these analytical capabilities is highly straightforward. You can activate these skills using Claude.ai Projects or Developer System Prompts.
 
 ### Prerequisites
-To run the automated data ingestion scripts, establish a local Python environment with the required dependencies:
+To run the automated data ingestion pipeline (`run.py`), you only need a standard Python 3.9+ installation and the lightweight **`requests`** library. All other parsing routines use Python's built-in standard library (like `json`, `os`, and `xml.etree.ElementTree`).
+
+Install the single external dependency:
 ```bash
-pip install pandas requests yfinance
+pip install requests
 ```
+
 
 ### Loading Skills into Claude (Select One Option)
 
@@ -220,6 +223,24 @@ institutional-finance-skills/
 ├── README.md
 └── institutional_intelligence_skills_research_document.md
 ```
+
+## 🌐 Recommended Reference Resources
+
+To benchmark your results, verify CIK identifiers, or configure your Claude environment, we recommend referring to the following primary websites:
+
+### 1. Ingestion & Search Databases
+* **[SEC EDGAR Company Search](https://www.sec.gov/edgar/searchedgar/companysearch)**:
+  The official U.S. government database. Use this to lookup any institutional manager (e.g., searching "Bridgewater" or "Citadel"), copy their official **10-digit Central Index Key (CIK)**, and inspect raw Form 13F-HR XML tables directly from the filing directory.
+* **[WhaleWisdom Portfolio Tracker](https://whalewisdom.com)**:
+  The industry-standard public platform for institutional disclosures. Highly recommended for cross-referencing your parsed output, verifying historical HHI concentration indices, and checking sector-rotation heatmaps.
+
+### 2. Financial Symbology & Tickers
+* **[OpenFIGI Search Registry](https://openfigi.com)**:
+  Use this portal to lookup security tickers, cross-reference 9-digit CUSIPs with Financial Instrument Global Identifiers (FIGI), and inspect exchange-listing details.
+
+### 3. Claude Skills & Environment Setup
+* **[Anthropic Claude Projects Guide](https://support.anthropic.com)**:
+  Refer to the official support documentation for details on setting up **Claude Projects**, configuring workspace custom instructions, and managing uploaded knowledge databases.
 
 ---
 
