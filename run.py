@@ -1,3 +1,4 @@
+import os
 import sys
 import json
 import argparse
@@ -156,7 +157,7 @@ def main():
                 "reporting_period": filing_date,
                 "holdings": holdings[:args.limit]
             }, f, indent=2)
-        print(f"\n[Success] Structured holdings payload automatically saved to local file: {filename}")
+        print(f"\n[Success] Structured holdings payload automatically saved to: {os.path.abspath(filename)}")
         print("You can now ask Claude: 'Analyze the portfolio in the saved JSON file'—no copy-paste required!")
         
     except Exception as e:
