@@ -1,0 +1,45 @@
+# OS X System Files
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+
+# Python Caches & Compiled Files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environments
+.venv/
+venv/
+ENV/
+env/
+.env
+.venv
+
+# Jupyter Notebooks Checkpoints
+.ipynb_checkpoints
+
+# Temporary & Log Files
+*.log
+*.tmp
+*.temp
