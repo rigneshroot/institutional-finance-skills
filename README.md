@@ -68,6 +68,7 @@ To keep the repository clean and readable, detailed instructions and guides have
 * **[2. How to Use Guide](docs/how_to_use.md)**: Agentic one-prompt workflows, unified terminal execution (`run.py` CLI script), and our **Input Flexibility (No JSON Required)** guidelines.
 * **[3. Prompt Templates Directory](docs/prompt_templates.md)**: A complete, copy-pasteable library of sophisticated conversational chat prompts for all 6 skills.
 * **[4. Financial Infrastructure & Resources](docs/financial_infrastructure.md)**: Comprehensive educational breakdowns of SEC Form 13F and the OpenFIGI standard, alongside recommended reference websites for benchmarking.
+* **[5. Jupyter Notebooks Directory](notebooks/)**: Interactive Jupyter Notebooks (`.ipynb`) detailing JPMC holdings, Berkshire's sector rotations, Citadel's multi-strategy changes, and Bridgewater's risk-parity macro themes.
 
 ---
 
@@ -82,6 +83,11 @@ institutional-finance-skills/
 │   ├── getting_started.md
 │   ├── how_to_use.md
 │   └── prompt_templates.md
+├── notebooks/
+│   ├── jpmc_analysis.ipynb
+│   ├── berkshire_sector_rotation.ipynb
+│   ├── citadel_portfolio_changes.ipynb
+│   └── bridgewater_macro_analysis.ipynb
 ├── skills/
 │   ├── institution-portfolio-analyzer/
 │   │   └── SKILL.md

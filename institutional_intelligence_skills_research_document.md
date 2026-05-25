@@ -236,6 +236,11 @@ institutional-finance-skills/
 │   ├── getting_started.md
 │   ├── how_to_use.md
 │   └── prompt_templates.md
+├── notebooks/
+│   ├── jpmc_analysis.ipynb
+│   ├── berkshire_sector_rotation.ipynb
+│   ├── citadel_portfolio_changes.ipynb
+│   └── bridgewater_macro_analysis.ipynb
 ├── skills/
 │   ├── institution-portfolio-analyzer/
 │   │   └── SKILL.md
