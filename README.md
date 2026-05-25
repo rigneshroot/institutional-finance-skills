@@ -91,6 +91,17 @@ message = client.messages.create(
 
 ## 💻 How to Use (Simplified Workflow)
 
+> [!TIP]
+> ### 💡 Input Flexibility: No JSON Required!
+> While our technical specifications illustrate a structured **JSON input** (ideal for automated API pipelines), **Claude does not require JSON at all**. 
+> 
+> Because Claude has advanced natural language reasoning, you can feed data in **any format you prefer**:
+> * **Plain Text Lists**: Just type: *"Apple: 300M shares, Chevron: 120M shares"*
+> * **Copy-Pasted Web Tables**: Directly copy a holdings table from Yahoo Finance, WhaleWisdom, or an Excel grid and paste it into the chat.
+> * **Raw CSV / Text Logs**: Upload or paste unformatted comma-separated text.
+> 
+> Claude will automatically parse the data, organize it internally, and execute the exact analytical steps defined within the skills.
+
 We have eliminated tedious copy-paste workflows. You can interact with these skills using two simple, elegant patterns:
 
 ### Option A: The Agentic Workflow (Zero Clicks / One Prompt)
