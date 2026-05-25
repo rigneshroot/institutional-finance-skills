@@ -35,6 +35,26 @@ Browse the conceptual, technical, and analytical foundations of our XAI system t
 
 ---
 
+## 🏦 Core Financial Infrastructure
+
+To understand how our Explainable AI (XAI) pipeline operates, it is helpful to outline the primary financial database and symbology systems we rely upon:
+
+### 1. SEC Form 13F
+**SEC Form 13F** is a quarterly regulatory filing required by the **U.S. Securities and Exchange Commission (SEC)**.
+* **Who must file**: Any institutional investment manager (e.g., hedge funds, mutual funds, trust companies, pension funds) overseeing at least **$100 million** in qualifying U.S. equity assets.
+* **What is disclosed**: Standard long equity holdings, share counts, options (puts/calls), and convertible debt weights. 
+* **The Structural Limitations (Why we need XAI)**: 
+  - **Reporting Latency**: Managers have up to **45 days** after the close of each fiscal quarter to file. Therefore, a filing represents a retroactive historical snapshot, not active real-time positioning.
+  - **Zero Context**: The filing is purely a numeric tabular table. It contains no strategic rationale, risk parameters, or explanations for portfolio rotations.
+  - **Exclusions**: 13F filings exclude short positions, non-U.S. listings, and cash balances.
+
+### 2. OpenFIGI (Financial Instrument Global Identifier)
+**OpenFIGI** is an open-source, standardized global symbology framework maintained by Bloomberg and the Object Management Group.
+* **Why it is critical to this project**: Raw SEC 13F filings do not list familiar stock tickers (like `AAPL` or `MSFT`). Instead, regulatory tables list assets using their **CUSIP** numbers (a unique 9-digit alphanumeric security identifier) or the issuer's registered corporate name.
+* **How we use it**: The `market-distribution-mapper` and standard parsers in our CLI pipeline connect to the OpenFIGI API to dynamically translate complex CUSIP identifiers into standard, human-readable tickers and their global primary exchange listings in real time.
+
+---
+
 ## 🛠️ Claude Skills Core
 
 This repository is engineered as a **Claude Skills-only repository**, containing 6 decoupled, enterprise-grade analytical skills. Each skill is packaged in a self-contained directory containing its isolated `SKILL.md` instruction file:
