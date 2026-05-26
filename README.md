@@ -111,7 +111,8 @@ To keep the repository clean and readable, detailed instructions and guides have
 * **[3. Prompt Templates Directory](docs/prompt_templates.md)**: A complete, copy-pasteable library of sophisticated conversational chat prompts for all 5 skills.
 * **[4. Financial Infrastructure & Resources](docs/financial_infrastructure.md)**: Comprehensive educational breakdowns of SEC Form 13F and the OpenFIGI standard, alongside recommended reference websites for benchmarking.
 * **[5. Jupyter Notebooks Directory](notebooks/)**: Interactive Jupyter Notebooks (`.ipynb`) detailing JPMC holdings, Berkshire's sector rotations, Citadel's multi-strategy changes, and Bridgewater's risk-parity macro themes.
-* **[6. Example Reports](examples/)**: Sample output reports demonstrating JPMC portfolio analysis, Citadel change detection, and Berkshire sector rotation.
+* **[6. Example Reports](examples/)**: Sample output reports demonstrating JPMC portfolio analysis, Citadel change detection, Berkshire sector rotation, and the **[BlackRock vs. Vanguard Comparative Divergence Audit](examples/blackrock_vanguard_comparison.md)**.
+* **[7. Interactive SEC Dashboard](dashboard/)**: A beautiful glassmorphic single-page web interface (`index.html`) demonstrating live SEC EDGAR parsing, portfolio concentration visualizers, and side-by-side divergent institutional audits.
 
 ---
 
@@ -121,6 +122,10 @@ The workspace is strictly partitioned to adhere to the modular **Claude Skills-o
 
 ```txt
 institutional-finance-skills/
+├── dashboard/
+│   ├── index.html
+│   ├── styles.css
+│   └── app.js
 ├── docs/
 │   ├── financial_infrastructure.md
 │   ├── getting_started.md
@@ -129,7 +134,8 @@ institutional-finance-skills/
 ├── examples/
 │   ├── jpmc_sample_report.md
 │   ├── citadel_change_analysis.md
-│   └── berkshire_sector_rotation.md
+│   ├── berkshire_sector_rotation.md
+│   └── blackrock_vanguard_comparison.md
 ├── notebooks/
 │   ├── jpmc_analysis.ipynb
 │   ├── berkshire_sector_rotation.ipynb

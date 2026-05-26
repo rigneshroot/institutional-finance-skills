@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Institutional Intelligence Portal — Explainable XAI Core</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="glass-bg-glow"></div>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="logo-area">
+                <span class="logo-icon">📊</span>
+                <div class="logo-text">
+                    <h1>Institutional Intelligence Core</h1>
+                    <span class="subtitle">Explainable Portfolio Analytics & Macro-Contextual Alignment</span>
+                </div>
+            </div>
+            <div class="version-tag">v2.1 Premium</div>
+        </header>
+
+        <!-- Main Body -->
+        <main class="dashboard-grid">
+            <!-- Left Panel: Control / SEC Loader -->
+            <section class="control-panel glass-card">
+                <div class="card-header">
+                    <h2>🔌 SEC EDGAR Real-Time Ingest Pipeline</h2>
+                    <p class="section-desc">Resolve CIK identifiers, fetch live holdings XML schedules, and compile quantitative aggregates directly from the SEC.</p>
+                </div>
+                
+                <div class="control-group">
+                    <label for="institution-select">Choose Institutional Archetype</label>
+                    <select id="institution-select" class="premium-select">
+                        <option value="JPMorgan Chase">JPMorgan Chase (Diversified Bank)</option>
+                        <option value="Citadel">Citadel Advisors (Multi-Strategy Quant)</option>
+                        <option value="Berkshire Hathaway">Berkshire Hathaway (Value Concentration)</option>
+                        <option value="BlackRock">BlackRock (Factor/Passive Giant)</option>
+                        <option value="Vanguard">Vanguard Group (Index Leader)</option>
+                    </select>
+                </div>
+
+                <div class="or-divider"><span>OR INPUT CUSTOM</span></div>
+
+                <div class="control-group">
+                    <label for="custom-input">Company Name or CIK</label>
+                    <div class="input-with-btn">
+                        <input type="text" id="custom-input" placeholder="e.g. Goldman Sachs or 0000886982" class="premium-input">
+                        <button id="resolve-btn" class="premium-btn active-btn">Load Pipeline</button>
+                    </div>
+                </div>
+
+                <div class="status-box" id="pipeline-status">
+                    <div class="status-indicator idle"></div>
+                    <span class="status-text">Pipeline Idle. Awaiting ingestion...</span>
+                </div>
+
+                <div class="info-alert">
+                    <span class="alert-icon">⚠️</span>
+                    <div class="alert-content">
+                        <strong>Data Limitation</strong>: Form 13F long positions reflect point-in-time holdings delayed by ~45 days. Excludes derivatives and shorts.
+                    </div>
+                </div>
+            </section>
+
+            <!-- Center Panel: Live Visual Summary -->
+            <section class="visualization-panel glass-card">
+                <div class="card-header">
+                    <h2>📊 Quantitative Allocation & Concentration Visualizer</h2>
+                    <p class="section-desc">Standardized Global Industry Classification Standard (GICS) sector distributions and computed HHI portfolios.</p>
+                </div>
+
+                <div class="visuals-subgrid">
+                    <div class="metric-badge">
+                        <span class="badge-label">Portfolio Value (Est.)</span>
+                        <span class="badge-value" id="val-portfolio">$267.4B</span>
+                    </div>
+                    <div class="metric-badge">
+                        <span class="badge-label">HHI Concentration Score</span>
+                        <span class="badge-value" id="val-hhi">2,418</span>
+                    </div>
+                    <div class="metric-badge">
+                        <span class="badge-label">Conviction Index (Top 5)</span>
+                        <span class="badge-value" id="val-top5">75.5%</span>
+                    </div>
+                </div>
+
+                <div class="sector-chart-container">
+                    <h3>GICS Sector Weights</h3>
+                    <div class="custom-chart" id="sector-bar-chart">
+                        <!-- Bars dynamically loaded by app.js -->
+                        <div class="chart-placeholder">Load institution to generate interactive weights.</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Right Panel: Explainable AI / Claude Prompt Output -->
+            <section class="explainable-panel glass-card">
+                <div class="card-header">
+                    <h2>🤖 Explainable AI Rationale Engine</h2>
+                    <p class="section-desc">Copy context payloads and macro prompting templates directly into Claude to trigger local skills.</p>
+                </div>
+
+                <div class="tab-selectors">
+                    <button class="tab-btn active" data-tab="holdings">Holdings Table</button>
+                    <button class="tab-btn" data-tab="claude-skill">Claude Skill Prompt</button>
+                </div>
+
+                <div class="tab-content" id="tab-holdings">
+                    <div class="table-container">
+                        <table class="premium-table" id="holdings-table">
+                            <thead>
+                                <tr>
+                                    <th>Rank</th>
+                                    <th>Security</th>
+                                    <th>Ticker</th>
+                                    <th class="num-col">Weight</th>
+                                    <th class="num-col">Value</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td colspan="5" class="table-loader">Awaiting SEC ingestion...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="tab-content hidden" id="tab-claude-skill">
+                    <div class="prompt-payload-box">
+                        <div class="payload-header">
+                            <span>Claude Context Payload (13F JSON)</span>
+                            <button class="copy-btn" id="copy-payload-btn">Copy JSON</button>
+                        </div>
+                        <pre class="code-block" id="prompt-payload-code">Select an institution or run SEC pipeline to generate JSON payload.</pre>
+
+                        <div class="payload-header margin-top-15">
+                            <span>Claude Skill Prompt Trigger</span>
+                            <button class="copy-btn" id="copy-prompt-btn">Copy Prompt</button>
+                        </div>
+                        <textarea class="prompt-textarea" id="prompt-text" readonly>Load an institution to generate the corresponding interactive analysis prompt...</textarea>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <!-- Comparative Divergent Engine (Bottom Component) -->
+        <section class="divergent-comparison-panel glass-card margin-top-20">
+            <div class="card-header">
+                <h2>🔀 side-by-Side Comparative Divergence Engine</h2>
+                <p class="section-desc">Select two giant allocators to evaluate divergence in sector weightings, active share profiles, and strategic orientation.</p>
+            </div>
+            <div class="compare-selectors">
+                <select id="compare-1" class="premium-select">
+                    <option value="BlackRock">BlackRock (Factor Indexed)</option>
+                    <option value="JPMorgan Chase">JPMorgan Chase (Diversified Banking)</option>
+                    <option value="Citadel">Citadel Advisors (Quant/Multi-Strategy)</option>
+                    <option value="Berkshire Hathaway">Berkshire Hathaway (Concentrated Value)</option>
+                </select>
+                <span class="versus-text">VS</span>
+                <select id="compare-2" class="premium-select">
+                    <option value="Vanguard">Vanguard Group (Passive Indexing)</option>
+                    <option value="Berkshire Hathaway">Berkshire Hathaway (Concentrated Value)</option>
+                    <option value="Citadel">Citadel Advisors (Quant/Multi-Strategy)</option>
+                    <option value="BlackRock">BlackRock (Factor Indexed)</option>
+                </select>
+                <button id="compare-btn" class="premium-btn active-btn">Analyze Divergence</button>
+            </div>
+            
+            <div class="comparison-results-grid hidden" id="comparison-results">
+                <!-- Comparative results dynamically appended here -->
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <p>Designed for post-hoc macro research and educational analysis. Licensed under MIT.</p>
+            <p>Institutional Intelligence Skills Framework &copy; 2026 Rignesh P</p>
+        </footer>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
