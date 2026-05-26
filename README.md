@@ -6,11 +6,11 @@
 
 Welcome to **Institutional Intelligence Skills**, an open-source Explainable AI (XAI) framework built on the **Claude Skills** architecture. Authored by **Rignesh P**, this repository bridges the informational gap between institutional investment giants and independent market researchers by transforming dense, retroactive regulatory filings into structured, macro-contextualized portfolio intelligence.
 
-> ⚠️ **Data Limitation**: SEC Form 13F data is delayed by approximately 45 days and is inherently backward-looking. Holdings reflect positions as of the filing date, not current allocations. This framework is designed for post-hoc academic research and strategic interpretation—**not** real-time trading signals.
+> **Data Limitation**: SEC Form 13F data is delayed by approximately 45 days and is inherently backward-looking. Holdings reflect positions as of the filing date, not current allocations. This framework is designed for post-hoc academic research and strategic interpretation—**not** real-time trading signals.
 
 ---
 
-## ⚡ Quick Start
+## Quick Start
 
 ```bash
 # Install the only dependency
@@ -28,7 +28,7 @@ For full setup instructions, see the **[Getting Started Guide](docs/getting_star
 
 ---
 
-## 🏛️ Supported Institutions
+## Supported Institutions
 
 The framework is engineered to support a diverse cohort of global institutional asset managers, categorizing them by investment philosophy:
 
@@ -48,10 +48,10 @@ The framework is engineered to support a diverse cohort of global institutional 
 
 ---
 
-## 📖 Research Foundation
+## Research Foundation
 
 The mathematical models, empirical evaluations, and cognitive frameworks backing this technology are detailed in the accompanying research paper:
-👉 **[Institutional Intelligence Skills Research Paper](institutional_intelligence_skills_research_document.md)**
+**[Institutional Intelligence Skills Research Paper](institutional_intelligence_skills_research_document.md)**
 
 This research introduces a scientific empirical framework using:
 - **Independent Variables (IV)**: Explanation Reasoning Paradigms, Macroeconomic Contextualization Depths, and Input Temporal Granularities.
@@ -60,7 +60,7 @@ This research introduces a scientific empirical framework using:
 
 ---
 
-## 🎨 Research & Architecture Visualizations
+## Research & Architecture Visualizations
 
 ### Conceptual Research Framework (Figure 1)
 ![Figure 1: Scientific Conceptual Framework](assets/conceptual_framework.png)
@@ -88,7 +88,7 @@ This research introduces a scientific empirical framework using:
 
 ---
 
-## 🛠️ Claude Skills Core
+## Claude Skills Core
 
 This repository is engineered as a **Claude Skills-only repository**, containing 5 decoupled, enterprise-grade analytical skills. Each skill is packaged in a self-contained directory containing its isolated `SKILL.md` instruction file:
 
@@ -102,7 +102,7 @@ This repository is engineered as a **Claude Skills-only repository**, containing
 
 ---
 
-## 📚 Documentation Portal
+## Documentation Portal
 
 To keep the repository clean and readable, detailed instructions and guides have been modularized under the [`docs/`](docs/) folder:
 
@@ -116,7 +116,7 @@ To keep the repository clean and readable, detailed instructions and guides have
 
 ---
 
-## 📂 Repository Structure
+## Repository Structure
 
 The workspace is strictly partitioned to adhere to the modular **Claude Skills-only repository** architecture:
 
@@ -170,7 +170,7 @@ institutional-finance-skills/
 
 ---
 
-## ⚖️ License & Disclaimer
+## License & Disclaimer
 
 This project is licensed under the open-source **MIT License**—see the [`LICENSE`](LICENSE) file for complete details.
 
